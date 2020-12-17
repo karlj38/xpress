@@ -81,7 +81,7 @@ artistsRouter.post("/", verifyArtist, (req, res, next) => {
 artistsRouter.put("/:artistId", verifyArtist, (req, res, next) => {
   const artist = req.body.artist;
   db.run(
-    `UPDATE Artist SET name = $name, date_of_birth = $dateOfBirth, biography = $biography, is_currently_employed = $isCurrentlyEmployed WHERE Artist.id = $artistId`,
+    `UPDATE Artist SET name = $name, date_of_birth = $dateOfBirth, biography = $biography, is_currently_employed = $isCurrentlyEmployed WHERE id = $artistId`,
     {
       $name: artist.name,
       $dateOfBirth: artist.dateOfBirth,
